@@ -16,3 +16,4 @@ cv2pdb/
 .vs/
 zlib/out/
 zlib/zconf.h.included
+.retrom-build/

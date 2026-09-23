@@ -65,7 +65,7 @@ static bool Midi_Host_WriteByte(uint8_t byte);
 
 #ifdef __LIBRETRO__
 extern bool core_midi_read(uint8_t* data);
-extern void core_midi_write(uint8_t data);
+extern bool core_midi_write(uint8_t data);
 #endif
 
 #ifndef HAVE_PORTMIDI

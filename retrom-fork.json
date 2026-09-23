@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "forkRepository": "https://github.com/retrom-project/hatariB",
+  "defaultBranch": "retrom/gcceb40a9c054",
+  "upstreamMirrorBranch": "main",
+  "upstreams": [
+    {
+      "role": "core",
+      "repository": "https://github.com/bbbradsmith/hatariB",
+      "refType": "COMMIT",
+      "ref": "cceb40a9c054ad867c62834e1cd3a9547b207178",
+      "commit": "cceb40a9c054ad867c62834e1cd3a9547b207178"
+    }
+  ],
+  "adapterAbi": "emulatorjs-state-v1",
+  "releaseAssets": [
+    "hatarib-wasm.data",
+    "LICENSE",
+    "source.tar.gz",
+    "rpg-runtime-release.json"
+  ]
+}

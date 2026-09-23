@@ -30,7 +30,7 @@ MULTITHREAD ?= -j
 WERROR ?= -Wall -Werror
 
 # git revision hash
-SHORTHASH = "$(shell git rev-parse --short HEAD || unknown)"
+SHORTHASH = "$(shell git rev-parse --short HEAD 2>/dev/null || printf unknown)"
 
 # static libraries
 ZLIB_INCLUDE ?= $(PWD)/$(ZLIB_BUILD)/include
@@ -50,6 +50,7 @@ LDFLAGS += \
 	-lm
 
 CMAKE ?= cmake
+CMAKE_BUILD ?= $(CMAKE)
 CMAKEFLAGS += \
 	-DZLIB_INCLUDE_DIR=$(ZLIB_INCLUDE) \
 	-DZLIB_LIBRARY=$(ZLIB_LIB) \
@@ -157,7 +158,7 @@ $(BD)/core/%.o: core/%.c hatarilib
 
 hatarilib: directories
 	(cd hatari/$(HBD) && $(CMAKE) .. $(CMAKEFLAGS) -DCMAKE_C_FLAGS="$(CFLAGS)")
-	(cd hatari/$(HBD) && $(CMAKE) --build . $(CMAKEBUILDFLAGS))
+	(cd hatari/$(HBD) && $(CMAKE_BUILD) --build . --target core Falcon UaeCpu GuiSdl Floppy Debug $(CMAKEBUILDFLAGS))
 
 clean:
 	rm -f -r $(BD)
