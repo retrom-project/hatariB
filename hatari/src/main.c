@@ -849,7 +849,9 @@ static void Main_Init(void)
 		Main_ErrorExit("Logging/tracing initialization failed", NULL, -1);
 #endif
 	}
+#ifndef __LIBRETRO__
 	Log_Printf(LOG_INFO, PROG_NAME ", compiled on:  " __DATE__ ", " __TIME__ "\n");
+#endif
 
 #ifndef __LIBRETRO__
 	/* Init SDL's video subsystem. Note: Audio subsystem
