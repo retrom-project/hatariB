@@ -26,5 +26,5 @@ const char* const HELPTEXT[] = {
 	"",
 	"https://github.com/bbbradsmith/hatariB/",
 	"https://www.hatari-emu.org/",
-	SHORTHASH " " __DATE__ " " __TIME__,
+	SHORTHASH,
 };

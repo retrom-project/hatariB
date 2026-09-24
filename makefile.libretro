@@ -23,6 +23,12 @@ else ifeq ($(platform),unix)
 ifneq ($(ARCH),x86)                             # linux-x64, linux-aarch64
 else                                            # linux-i686
 endif
+else ifeq ($(platform),emscripten)
+	MAKE_ACTION := static
+	ZLIB_MAKE_ACTION := manual
+	CORESTATIC_SUFFIX := .bc
+	CFLAGS_EXTRA := -include $(CURDIR)/.github/rpg-runtime/file-namespace.h
+	MAKE_EXTRA := CC=emcc AR=emar RANLIB=emranlib CMAKE="emcmake cmake" CMAKE_BUILD=cmake BD=build-emscripten HBD=build-emscripten ZLIB_BUILD=zlib_build_emscripten
 else ifeq ($(platform),osx)
 ifneq ($(ARCH),arm)                             # osx-x64
 else                                            # osx-arm64
